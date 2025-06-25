@@ -1,0 +1,13 @@
+
+.my-carousel {
+    border: 1px solid red;
+    display: flex;
+    overflow-x: scroll;
+    gap: 15px;
+}
+
+.my-card {
+    border: 1px solid grey;
+    min-width: 250px;
+    height: 350px
+}
