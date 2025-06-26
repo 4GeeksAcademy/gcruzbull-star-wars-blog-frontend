@@ -8,6 +8,5 @@
 
 .my-card {
     border: 1px solid grey;
-    min-width: 250px;
-    height: 350px
+    min-width: 300px;
 }

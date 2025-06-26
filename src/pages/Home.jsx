@@ -30,13 +30,16 @@ export const Home = () => {
 
 	const getAllPlanet = async() => {
 		try {
-			const response = await fetch("https://www.swapi.tech/api/planets/")
+			const response = await fetch("https://swapi.info/api/planets")
 			if(response.ok) {
-				const data = await response.json
-				// setPlanet(data.results)
+				const data = await response.json()
+				dispatch({type: "set_planets", payload: data})
+				return true 
 			}
+			dispatch({type: "set_planets", payload: false})
 		} catch (error) {
 			console.log(error)
+			dispatch({type: "set_planets", payload: false})
 		}
 		
 	};
@@ -46,14 +49,23 @@ export const Home = () => {
 	}, [])
 
 	return (
-
 		<div className="container">
-			<h1 className="text-danger m-5">Characters</h1>
-			{store.characters == null ? <h1>Loading Characters...</h1> : 
-				store.characters == false ? <h1 className="text-danger">Error Loading Characters</h1> :
-					store.characters && store.characters.length > 0 && store.characters.map(character => <PeopleCard character={character}/>)} 
-			
-			{/* <PlanetCard/>			 */}
+			<h1 className="text-danger mb-5 mt-5">Characters</h1>
+			<div className="my-carousel">
+				<div className = "d-flex align-content-center">
+				{store.characters == null ? <h1>Loading Characters...</h1> : 
+					store.characters == false ? <h1 className="text-danger">Error Loading Characters</h1> :
+						store.characters && store.characters.length > 0 && store.characters.map(character => <PeopleCard character={character}/>)} 
+				</div>
+			</div>
+			<h1 className="text-danger mb-5 mt-5">Planets</h1>
+			<div className="my-carousel">
+				<div className = "d-flex align-content-center">
+				{store.planets == null ? <h1>Loading Planets...</h1> : 
+					store.planets == false ? <h1 className="text-danger">Error Loading Planets</h1> :
+						store.planets && store.planets.length > 0 && store.planets.map(planet => <PlanetCard planet={planet}/>)} 
+				</div>
+			</div>			
 		</div>
 	);
 };

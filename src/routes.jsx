@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import { Layout } from "./pages/Layout";
 import { Home } from "./pages/Home";
+import { SingleCharacter } from "./pages/SingleCharacter";
+import { SinglePlanet } from "./pages/SinglePlanet";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -21,6 +23,8 @@ export const router = createBrowserRouter(
 
         {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
         <Route path= "/" element={<Home />} />
+        <Route path= "/detail/character/:id" element={<SingleCharacter />} />
+        <Route path= "/detail/planet/:id" element={<SinglePlanet />} />
       </Route>
     )
 );
