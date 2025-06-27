@@ -2,9 +2,9 @@ export const initialStore=()=>{
   return{
     characters: null, 
     planets: null,
-    favorites: null,
+    favorites: [],
   }
-}
+}     
 
 export default function storeReducer(store, action = {}) {
   switch(action.type){
@@ -14,7 +14,7 @@ export default function storeReducer(store, action = {}) {
 
       return {
         ...store,
-        characters: characters
+        characters: characters      // mantengo todo pero cambio character en blanco (lo de arriba)(el de azul son los datos que vienen)
       };
     case 'set_planets':
 

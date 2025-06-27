@@ -17,6 +17,23 @@ export const SinglePlanet = () => {
                     setPlanet(false)
                 } 
             }
+        } else {
+            async function getData() {
+                        const url = `https://swapi.info/api/planets/${id}`;
+                        try {
+                            const response = await fetch(url);
+                            if (!response.ok) {
+                            throw new Error(`Response status: ${response.status}`);
+                            }
+
+                            const json = await response.json();
+                            console.log(json);
+                            setCharacter(json)
+                        } catch (error) {
+                            console.error(error.message);
+                        }
+                    }
+                    getData()
         }
     }, [id, store.planets])
     return (
@@ -24,7 +41,7 @@ export const SinglePlanet = () => {
             <div className="card mb-3">
                 <div className="row g-0">
                     <div className="col-md-8">
-                        <img src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/refs/heads/master/public/images/people/${planet && planet.url.split("/")[5]}.jpg`} alt="starwars img" />
+                        <img src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/refs/heads/master/public/images/planets/${planet && planet.url.split("/")[5]}.jpg`} alt="starwars img" />
                     </div>
                     <div className="col-md-4">
                         <div className="card-body">

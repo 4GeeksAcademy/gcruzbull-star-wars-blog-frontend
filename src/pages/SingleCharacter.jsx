@@ -16,8 +16,26 @@ export const SingleCharacter = () => {
                     setCharacter(result)
                 } else {
                     setCharacter(false)
+                    
                 } 
             }
+        } else {
+            async function getData() {
+                        const url = `https://swapi.info/api/people/${id}`;
+                        try {
+                            const response = await fetch(url);
+                            if (!response.ok) {
+                            throw new Error(`Response status: ${response.status}`);
+                            }
+
+                            const json = await response.json();
+                            console.log(json);
+                            setCharacter(json)
+                        } catch (error) {
+                            console.error(error.message);
+                        }
+                    }
+                    getData()
         }
     }, [id, store.characters])
 

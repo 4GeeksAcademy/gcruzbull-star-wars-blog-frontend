@@ -1,33 +1,34 @@
 import { Link } from "react-router-dom";
-// import { PeopleCard } from "./PeopleCard";
+import logo from "../assets/img/image.png"
+import useGlobalReducer from "../hooks/useGlobalReducer";
 
 export const Navbar = () => {
 
-	// const { favouritePeople, setFavouritePeople } = useState([])
-
-	// const favouriteList = () => {
-
-	// }
+	const { store, dispatch } = useGlobalReducer()
 
 	return (
 		<nav className="navbar navbar-light bg-light">
 			<div className="container">
 				<Link to="/">
-					<img width={70} src="src/assets/img/image.png" alt="logoStarWars" />
+					<img width={70} src={logo} alt="logoStarWars" />
 				</Link>
 				<div className="ml-auto">
-					<Link to="/demo">
 						<div className="dropdown" onClick={(e) => e.stopPropagation()}>
 							<button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-								Favorites (0)
+								Favorites ({store.favorites.length})
 							</button>
 							<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-								<li><a className="dropdown-item" href="#">Action</a></li>
-								<li><a className="dropdown-item" href="#">Another action</a></li>
-								<li><a className="dropdown-item" href="#">Something else here</a></li>
+								
+			
+									
+									{store.favorites == null ? <span>Loading Favorites...</span> : 
+										store.favorites == false ? <span className="text-danger">Error Loading Favorites</span> :
+											store.favorites && store.favorites.length > 0 && store.favorites.map(favorite => <li className="dropdown-item">{favorite}</li>)}
+								
+								
+								
 							</ul>
 						</div>
-					</Link>
 				</div>
 			</div>
 		</nav>

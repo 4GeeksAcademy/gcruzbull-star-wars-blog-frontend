@@ -55,7 +55,7 @@ export const Home = () => {
 				<div className = "d-flex align-content-center">
 				{store.characters == null ? <h1>Loading Characters...</h1> : 
 					store.characters == false ? <h1 className="text-danger">Error Loading Characters</h1> :
-						store.characters && store.characters.length > 0 && store.characters.map(character => <PeopleCard character={character}/>)} 
+						store.characters && store.characters.length > 0 && store.characters.map(character => <PeopleCard key={character.name} character={character}/>)} 
 				</div>
 			</div>
 			<h1 className="text-danger mb-5 mt-5">Planets</h1>
@@ -63,7 +63,7 @@ export const Home = () => {
 				<div className = "d-flex align-content-center">
 				{store.planets == null ? <h1>Loading Planets...</h1> : 
 					store.planets == false ? <h1 className="text-danger">Error Loading Planets</h1> :
-						store.planets && store.planets.length > 0 && store.planets.map(planet => <PlanetCard planet={planet}/>)} 
+						store.planets && store.planets.length > 0 && store.planets.map(planet => <PlanetCard key={planet.name} planet={planet}/>)} 
 				</div>
 			</div>			
 		</div>
