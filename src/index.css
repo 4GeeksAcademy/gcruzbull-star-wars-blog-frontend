@@ -1,12 +1,14 @@
 
 .my-carousel {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     overflow-x: scroll;
     gap: 15px;
+    
 }
 
 .my-card {
-    border: 1px solid grey;
+    border: 1px solid lightgray;
     min-width: 300px;
+    /* display: block; */
 }

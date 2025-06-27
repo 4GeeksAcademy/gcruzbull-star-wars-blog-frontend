@@ -50,7 +50,7 @@ export const Home = () => {
 
 	return (
 		<div className="container">
-			<h1 className="text-danger mb-5 mt-5">Characters</h1>
+			<h1 className="text-danger ps-3 mb-5 mt-5">Characters</h1>
 			<div className="my-carousel">
 				<div className = "d-flex align-content-center">
 				{store.characters == null ? <h1>Loading Characters...</h1> : 
@@ -58,7 +58,7 @@ export const Home = () => {
 						store.characters && store.characters.length > 0 && store.characters.map(character => <PeopleCard key={character.name} character={character}/>)} 
 				</div>
 			</div>
-			<h1 className="text-danger mb-5 mt-5">Planets</h1>
+			<h1 className="text-danger ps-3 mb-5 mt-5">Planets</h1>
 			<div className="my-carousel">
 				<div className = "d-flex align-content-center">
 				{store.planets == null ? <h1>Loading Planets...</h1> : 
