@@ -41,19 +41,23 @@ export const SingleCharacter = () => {
 
     return (
         <div className="container">
-            <div className="row card m-3 d-flex bg-black">
-                <div className="col-md-12 m-3 d-flex justify-content-center">
-                    <div className="col-sm-6 me-0">
-                        <img src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/refs/heads/master/public/images/people/${character && character.url.split("/")[5]}.jpg`} alt="starwars img" />
-                    </div>
-                    <div className="col-sm-6 justify-content-start ms-0 me-4 bg-secondary">
-                        <div className="m-5 text-white">
-                            <h1 className="card-title text-white">
-                                {character && character.name}
-                            </h1>
-                            <p className="card-text">
-                                This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                            </p>
+            <div className="row card d-flex bg-black">
+                <div className="col-md-12 d-flex justify-content-center">
+                    <div className="row mt-3">
+                        <div className="col-12 col-lg-6 m-0">
+                            <img width={"100%"} src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/refs/heads/master/public/images/people/${character && character.url.split("/")[5]}.jpg`} alt="starwars img" />
+                        </div>
+                        <div className="col-12 col-lg-6 m-0">
+                            <div className="bg-secondary p-3 h-100">
+                                <div className="text-white">
+                                    <h1 className="card-title text-white">
+                                        {character && character.name}
+                                    </h1>
+                                    <p className="card-text">
+                                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
